@@ -13,13 +13,23 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+// User Controller
+// 
+Route::controller(userController::class)->group(function(){
+    Route::get('/','showHome')->name('home');
+    Route::get('/home/{name?}','showHome');
+    Route::get('/properties','showProperties')->name('properties');
+    Route::get('/detail','showDetail')->name('detail');
+    Route::get('/feedback','Showcontact')->name('contact');
+});
 
 
-Route::get('/',[userController::class,'showHome'])->name('home');
-Route::get('/home/{name?}',[userController::class,'showHome']);
-Route::get('/properties',[userController::class,'showProperties'])->name('properties');
-Route::get('/detail',[userController::class,'showDetail'])->name('detail');
-Route::get('/feedback',[userController::class,'Showcontact'])->name('contact');
+// Admin Controller
+// Route::get('/',[userController::class,'showHome'])->name('home');
+// Route::get('/home/{name?}',[userController::class,'showHome']);
+// Route::get('/properties',[userController::class,'showProperties'])->name('properties');
+// Route::get('/detail',[userController::class,'showDetail'])->name('detail');
+// Route::get('/feedback',[userController::class,'Showcontact'])->name('contact');
 
 
 // Route::resource('/', userController::class);
