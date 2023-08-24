@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\adminController;
 use App\Http\Controllers\userController;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +27,21 @@ Route::controller(userController::class)->group(function(){
 
 
 // Admin Controller
+Route::controller(adminController::class)->group(function(){
+    Route::prefix('admin')->group(function(){
+        Route::get('/home','showAdminHome')->name('adminhome');
+        Route::get('/create','showAdminAdd')->name('admincreate');
+    });
+});
+
+
+
+
+
+
+
+
+
 // Route::get('/',[userController::class,'showHome'])->name('home');
 // Route::get('/home/{name?}',[userController::class,'showHome']);
 // Route::get('/properties',[userController::class,'showProperties'])->name('properties');
